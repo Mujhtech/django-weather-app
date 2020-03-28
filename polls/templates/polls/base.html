@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Geo Search</title>
+    
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" >
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    
+    {% block content %}
+    {% endblock %}
+
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/googlesearch.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBMCu0CscH0FMiSVxthbdBOlGbUZGKNJRk"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=createMap&libraries=places&key=AIzaSyBMCu0CscH0FMiSVxthbdBOlGbUZGKNJRk"></script>
+    <script src="{% static 'js/search.js' %}"></script>
+    <script src="{% static 'js/conversion.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.pop-up').hide();
+            setTimeout(function() {
+                $('.pop-up').fadeIn('slow');
+            },2000);
+            $('.pop-up-close').on('click',function() {
+                $('.pop-up').fadeOut('slow');
+            });
+            
+        });
+    </script>
+</body>
+</html>
